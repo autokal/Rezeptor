@@ -1,18 +1,19 @@
 class Rezept:
     def __init__(self, name_rezept, ernaehrungsform, zutatenliste, zubereitung):
         self.name = name_rezept
-        self.stil = ernaehrungsform
+        self.form = ernaehrungsform
         self.zutaten = zutatenliste
         self.zubereitung = zubereitung
 
-    #def send_meal_per_mail(self):
-    def rezept_anzeigen(self):
-        print(f'Hallo :) wie wäre es heute mit {self.name}, ein {self.stil} Gericht.\n\nbenötigte Zutaten:'
-              f'\n{self.zutaten}\n\nZubereitung:\n {self.zubereitung}')
+    def gericht_ausgeben(self):
+        print(f'Gericht {self.name} ist ein {self.form} gericht\n {self.zutaten}\n {self.zubereitung}')
 
+    def gericht_anlegen(self, name, art, zutatenliste, zubereitung):
+        name = input('name bitte')
+        art = input('vegan oder was')
+        zutaten = input('zutaten mit mengenangabe')
+        zubereitung = input('text bitte für zubereitung')
 
+        zutatenliste = zutaten.split(',')
 
-
-rezept1 = Rezept('kartoffel', 'vegetarisch', 'salz, kartoffel, wasser', 'Wasser kochen salz rein und essen')
-rezept1.rezept_anzeigen()
-
+        neues_gericht = Rezept(name, art, zutatenliste, zubereitung)
